@@ -25,7 +25,17 @@ ScopePay turns a client brief into an editable proposal, shares it through a pri
 1. Copy `.env.example` to `.env.local` and fill in the provider credentials. Keep `.env.local` private and out of Git.
 2. In the Supabase SQL editor, run `supabase/phase4-schema.sql`, then `supabase/phase5-payments-schema.sql`.
 3. In the PayPal Developer Dashboard, create a sandbox webhook pointing to `https://YOUR_PUBLIC_HOST/api/paypal/webhook`, subscribe to `PAYMENT.CAPTURE.PENDING`, `PAYMENT.CAPTURE.COMPLETED`, and `PAYMENT.CAPTURE.DENIED`, and put its webhook ID in `PAYPAL_WEBHOOK_ID`. Pending payments stay pending until a signed completed event arrives; denied payments are marked failed.
-4. Install dependencies and build:
+4. Install dependencies, build, and start the development server. On macOS, Linux, and Command Prompt, use `npm`. In Windows PowerShell, use the `.cmd` versions if `npm` is blocked by PowerShell's script policy:
+
+   **macOS / Linux / Command Prompt:**
+
+   ```sh
+   npm install
+   npm run build
+   npm run dev
+   ```
+
+   **Windows PowerShell 5.1:**
 
    ```powershell
    npm.cmd install
@@ -67,3 +77,4 @@ See `.env.example` for all names. AI, Supabase, and PayPal secrets are used only
 - Draft proposals are saved in the current browser's local storage. Shared proposals and payments are stored in Supabase.
 - AI pricing and timelines are estimates and require human review.
 - Email delivery, account management, and production payment operations are not included.
+
