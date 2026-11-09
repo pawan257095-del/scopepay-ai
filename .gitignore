@@ -1,8 +1,14 @@
 node_modules
 .next
+.vercel
+.turbo
 out
+dist
+coverage
 build-check*/
 *.tsbuildinfo
+*.log
 .env*
 !.env.example
 .DS_Store
+
